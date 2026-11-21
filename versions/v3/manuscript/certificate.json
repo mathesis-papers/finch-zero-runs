@@ -1,0 +1,295 @@
+{
+  "arithmetic": "exact Python integers and reduction modulo 3",
+  "capture_examples": {
+    "lag_range": {
+      "first": 2,
+      "last": 41
+    },
+    "orbits": [
+      {
+        "capture_endpoint": 9,
+        "capture_offset": 9,
+        "lag": 2,
+        "least_period": 4,
+        "least_preperiod": 0
+      },
+      {
+        "capture_endpoint": 11,
+        "capture_offset": 6,
+        "lag": 3,
+        "least_period": 4,
+        "least_preperiod": 5
+      },
+      {
+        "lag": 4,
+        "least_period": 9,
+        "least_preperiod": 7
+      },
+      {
+        "lag": 5,
+        "least_period": 19,
+        "least_preperiod": 9
+      },
+      {
+        "capture_endpoint": 24,
+        "capture_offset": 6,
+        "lag": 6,
+        "least_period": 4,
+        "least_preperiod": 18
+      },
+      {
+        "capture_endpoint": 39,
+        "capture_offset": 6,
+        "lag": 7,
+        "least_period": 4,
+        "least_preperiod": 33
+      },
+      {
+        "lag": 8,
+        "least_period": 22,
+        "least_preperiod": 35
+      },
+      {
+        "lag": 9,
+        "least_period": 36,
+        "least_preperiod": 27
+      },
+      {
+        "capture_endpoint": 82,
+        "capture_offset": 6,
+        "lag": 10,
+        "least_period": 4,
+        "least_preperiod": 76
+      },
+      {
+        "capture_endpoint": 62,
+        "capture_offset": 6,
+        "lag": 11,
+        "least_period": 4,
+        "least_preperiod": 56
+      },
+      {
+        "lag": 12,
+        "least_period": 45,
+        "least_preperiod": 62
+      },
+      {
+        "lag": 13,
+        "least_period": 64,
+        "least_preperiod": 101
+      },
+      {
+        "capture_endpoint": 140,
+        "capture_offset": 6,
+        "lag": 14,
+        "least_period": 4,
+        "least_preperiod": 134
+      },
+      {
+        "capture_endpoint": 85,
+        "capture_offset": 6,
+        "lag": 15,
+        "least_period": 4,
+        "least_preperiod": 79
+      },
+      {
+        "lag": 16,
+        "least_period": 102,
+        "least_preperiod": 86
+      },
+      {
+        "lag": 17,
+        "least_period": 182,
+        "least_preperiod": 80
+      },
+      {
+        "lag": 18,
+        "least_period": 213,
+        "least_preperiod": 201
+      },
+      {
+        "capture_endpoint": 182,
+        "capture_offset": 6,
+        "lag": 19,
+        "least_period": 4,
+        "least_preperiod": 176
+      },
+      {
+        "lag": 20,
+        "least_period": 188,
+        "least_preperiod": 109
+      },
+      {
+        "lag": 21,
+        "least_period": 272,
+        "least_preperiod": 145
+      },
+      {
+        "capture_endpoint": 566,
+        "capture_offset": 6,
+        "lag": 22,
+        "least_period": 4,
+        "least_preperiod": 560
+      },
+      {
+        "lag": 23,
+        "least_period": 412,
+        "least_preperiod": 295
+      },
+      {
+        "lag": 24,
+        "least_period": 225,
+        "least_preperiod": 376
+      },
+      {
+        "lag": 25,
+        "least_period": 202,
+        "least_preperiod": 207
+      },
+      {
+        "capture_endpoint": 343,
+        "capture_offset": 6,
+        "lag": 26,
+        "least_period": 4,
+        "least_preperiod": 337
+      },
+      {
+        "capture_endpoint": 320,
+        "capture_offset": 6,
+        "lag": 27,
+        "least_period": 4,
+        "least_preperiod": 314
+      },
+      {
+        "lag": 28,
+        "least_period": 1444,
+        "least_preperiod": 561
+      },
+      {
+        "lag": 29,
+        "least_period": 512,
+        "least_preperiod": 242
+      },
+      {
+        "capture_endpoint": 1808,
+        "capture_offset": 6,
+        "lag": 30,
+        "least_period": 4,
+        "least_preperiod": 1802
+      },
+      {
+        "capture_endpoint": 754,
+        "capture_offset": 6,
+        "lag": 31,
+        "least_period": 4,
+        "least_preperiod": 748
+      },
+      {
+        "lag": 32,
+        "least_period": 840,
+        "least_preperiod": 706
+      },
+      {
+        "lag": 33,
+        "least_period": 1237,
+        "least_preperiod": 249
+      },
+      {
+        "capture_endpoint": 1135,
+        "capture_offset": 6,
+        "lag": 34,
+        "least_period": 4,
+        "least_preperiod": 1129
+      },
+      {
+        "lag": 35,
+        "least_period": 1138,
+        "least_preperiod": 1284
+      },
+      {
+        "lag": 36,
+        "least_period": 362,
+        "least_preperiod": 1531
+      },
+      {
+        "lag": 37,
+        "least_period": 1263,
+        "least_preperiod": 602
+      },
+      {
+        "capture_endpoint": 2779,
+        "capture_offset": 6,
+        "lag": 38,
+        "least_period": 4,
+        "least_preperiod": 2773
+      },
+      {
+        "capture_endpoint": 3172,
+        "capture_offset": 6,
+        "lag": 39,
+        "least_period": 4,
+        "least_preperiod": 3166
+      },
+      {
+        "lag": 40,
+        "least_period": 1536,
+        "least_preperiod": 1202
+      },
+      {
+        "lag": 41,
+        "least_period": 672,
+        "least_preperiod": 1264
+      }
+    ],
+    "scope": "Finite examples of the capture theorem and neighborhood corollary; the general statements have written proofs in the note.",
+    "state_bound_per_lag": 200000
+  },
+  "closing_state": 92196811829875935758365998383,
+  "direct_packed_comparisons": 9685,
+  "direct_scalar_terms": 27638,
+  "distinct_states": 9685,
+  "example_18_terms_matched": 60,
+  "first_repeated_index": 739,
+  "lag": 61,
+  "lag_two": {
+    "capture_endpoint": 9,
+    "capture_offset": 9,
+    "cycle": [
+      0,
+      1,
+      1,
+      2
+    ],
+    "first_capture_start": 5,
+    "least_period": 4,
+    "least_preperiod": 0
+  },
+  "least_eventual_period": 8946,
+  "least_preperiod": 739,
+  "maximum_gaps": 10,
+  "orbit_sha256_decimal_lines": "790081bb0597249bfeab9a442522defba1feed1a1f5ffb22333234d28781929c",
+  "run_start_representatives": {
+    "first": 62,
+    "last": 9701
+  },
+  "schema_version": 1,
+  "source_upper_bound": 15,
+  "state_indices": {
+    "closing": 9685,
+    "first": 0,
+    "last": 9684
+  },
+  "status": "ALL_CHECKS_OK",
+  "suffix_mask_counts_by_gaps": {
+    "10": 1,
+    "11": 0,
+    "15": 0
+  },
+  "ten_gap_block": "(0,1,2,2) repeated 10 times, followed by 0",
+  "ten_gap_end": 2820,
+  "ten_gap_start": 2780,
+  "ten_gap_start_progression": {
+    "first": 2780,
+    "step": 8946
+  }
+}

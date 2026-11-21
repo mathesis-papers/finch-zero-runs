@@ -1,0 +1,58 @@
+{
+  "id": "finch-zero-runs",
+  "revision": 3,
+  "date": "2026-11-19",
+  "problem_ids": [
+    "finch-zero-runs",
+    "finch-2026-conjecture-23-capture-offset"
+  ],
+  "topic": "Universal attainment of the four-spaced zero-run bound in Finch's quadratic recurrence modulo three",
+  "title": "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem",
+  "creators": [
+    {
+      "name": "Haobo Ma",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Wenlin Zhang",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "Extending Finch's analysis of the zero-run question in Three Quadratic Recurrences Modulo 3, arXiv:2610.34300v1, Section 6, Remark 20, page 8, we answer universal attainment negatively: a closed ternary-state orbit proves that the maximum at lag 61 is ten gaps rather than the upper bound fifteen. The ten-gap starts are exactly 2780+8946m for m >= 0, and the least preperiod is 739; Harder's earlier period value 8946 is recovered. We also correct Finch's capture-offset Conjecture 23 (Section 7, page 9): whenever the eventual period is four, the offset is six for every lag k >= 3, and nine at k=2.",
+  "summary": "At lag 61 the exact maximum four-spaced zero run has ten gaps, not fifteen. The capture offset for any lag with eventual period four is six when k >= 3 and nine at k=2. The neighborhood conditions follow for k >= 3.",
+  "license": "cc-by-4.0",
+  "verification": {
+    "written_proofs": [
+      "Theorem 1: exact maximum ten gaps at lag 61, all ten-gap start indices, and least period/preperiod from the closed state orbit",
+      "Theorem 2: complete conditional capture law with first-run start indices and last-disagreement triples",
+      "Corollary 3: the neighborhood indicators for every eligible lag at least three and the lag-two boundary"
+    ],
+    "finite_checks": [
+      {"script": "verify.py", "output": "certificate.json", "complete_orbits": "2 <= k <= 41; lag 61"},
+      {"script": "verify_capture.py", "output": "capture-checks.json", "max_k": 80, "cap_per_k": 1000000}
+    ],
+    "open_scope": "Conjectures 5, 10 and 14, classification of the period-four lags, and individual attainment at the six large lags in Remark 20 are not covered."
+  },
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/0d064f0d28d301cd8a1d1b09173035a9f2fd6c02/D5/S1/Recurrence/FinchZeroRunsModThree.lean",
+  "source_url": "https://arxiv.org/abs/2610.34300v1",
+  "coverage": [
+    {
+      "source_item": "Section 6, Remark 20, page 8",
+      "status": "Answered: no, for universal attainment",
+      "statement": "The exact maximum at lag 61 is ten, not fifteen.",
+      "support": "Theorem 1; exact finite orbit and written reduction; result in the pinned FinchZeroRunsModThree.lean proves the negation of universal attainment."
+    },
+    {
+      "source_item": "Section 7, Conjecture 23, page 9",
+      "status": "Refuted-and-corrected",
+      "statement": "For every lag with least eventual period four, the capture offset is nine at k=2 and six at k >= 3. For k >= 3, the first capturing run starts at mu-k+4 or mu-k+5 in residue classes 2 or 3, with last-disagreement triples (2,2,0) or (1,2,0), respectively.",
+      "support": "Theorem 2 gives the complete written proof. The result in the pinned FinchConjecture23CaptureOffsetRefutation.lean covers only the k=2 refutation; finite examples at lags 2 through 41 and bounded capture searches through lag 80 supplement the written proof."
+    },
+    {
+      "source_item": "Section 7, Remark 24, page 9",
+      "status": "Proved for k >= 3; boundary condition fails at k=2",
+      "statement": "The stated neighborhood indicators hold at every eligible lag k >= 3; at k=2 the proposed nonzero indicator equals zero.",
+      "support": "Corollary 3, written proof."
+    }
+  ]
+}

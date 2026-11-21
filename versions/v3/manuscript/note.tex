@@ -1,0 +1,373 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\F}{\mathbb F_3}
+\title{Extending Finch's zero-run analysis:\\nonattainment and a corrected capture theorem}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{November 19, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Finch's analysis of the zero-run question in \emph{Three
+Quadratic Recurrences Modulo 3}, arXiv:2610.34300v1, \S6, Remark~20,
+p.~8, we answer universal attainment negatively: a closed ternary-state
+orbit proves that the maximum at lag $61$ is ten gaps rather than the
+upper bound fifteen. The ten-gap starts are exactly $2780+8946m$
+for $m\ge0$, and the least preperiod is $739$; Harder's earlier period
+value $8946$ is recovered. We also correct Finch's capture-offset
+Conjecture~23 (\S7, p.~9): whenever the eventual period is four,
+the offset is six for every lag $k\ge3$, and nine at $k=2$.
+\end{abstract}
+
+\section{The question and the sharp counterexample}
+Fix $k\ge2$. The positive-index sequence considered here is uniquely
+specified in $\F$ by
+\begin{equation}\label{eq:recurrence}
+ x_1=\cdots=x_{k-1}=0,\qquad x_k=1,\qquad
+ x_n=x_{n-1}+x_{n-k}^{\,2}\quad(n\ge k+1).
+\end{equation}
+Represent its values by $0,1,2$. Following Finch's Definition~15
+\cite[\S6, pp.~6--7]{finch2026}, a run with $g\ge1$ gaps starts at
+$r\ge k+1$ and satisfies
+\begin{equation}\label{eq:run}
+ x_{r+i}=0\quad\Longleftrightarrow\quad i\equiv0\pmod4
+ \qquad(0\le i\le4g).
+\end{equation}
+It has $g+1$ zeros and need not be a maximal run.
+
+Finch's Theorem~16 bounds $g$ by $\lfloor(k-1)/4\rfloor$ for
+$k\equiv0,1\pmod4$. Remark~20 asks about attaining that bound
+for every such parameter. Our result concerns this universal reading
+of the question, not the validity of the upper bound. Earlier period
+computations by Harder, reproduced in Finch's note
+\cite[\S0.2, p.~2]{finch2002}, include $N_A(61)=8946$.
+Period length alone does not decide whether a specified zero pattern occurs;
+the complete orbit and the pattern test below do.
+
+\begin{theorem}\label{thm:main}
+For the sequence \eqref{eq:recurrence} with $k=61$, the maximum number
+of gaps in a run \eqref{eq:run} is exactly ten. In particular, the
+bound $\lfloor(61-1)/4\rfloor=15$ is not attained. The least eventual
+period is $8946$, and the least $\mu\ge0$ such that
+$x_{n+8946}=x_n$ for all $n>\mu$ is $739$.
+The ten-gap runs start exactly at $2780+8946m$, for integers $m\ge0$.
+\end{theorem}
+
+\section{A finite certificate for the entire sequence}
+For $j\ge0$ encode the block ending at $j+61$ as
+\[
+ S_j=\sum_{i=0}^{60}x_{j+61-i}3^i.
+\]
+Thus $S_0=1$, and the newest term is the least significant digit.
+Writing $M=3^{60}$, define, for $0\le s<3^{61}$,
+\begin{equation}\label{eq:transition}
+ T(s)=3(s\bmod M)+\left(\bigl((s\bmod3)+\lfloor s/M\rfloor^2\bigr)\bmod3\right).
+\end{equation}
+In the parentheses the whole sum is reduced modulo $3$.
+Indeed $s\bmod3=x_{j+61}$ and $\lfloor s/M\rfloor=x_{j+1}$ when
+$s=S_j$. Multiplication by three shifts the retained sixty digits
+one place; the new low digit is $x_{j+62}$. Hence
+$S_{j+1}=T(S_j)$ for every $j\ge0$.
+
+The exact-integer calculation in \texttt{verify.py} gives
+\begin{align}
+ &S_0,\ldots,S_{9684}\text{ are pairwise distinct},\label{eq:distinct}\\
+ &T(S_{9684})=S_{739}=92196811829875935758365998383.\label{eq:closing}
+\end{align}
+Every successor in the list is checked as well. Thus these $9685$
+states form a forward-invariant set containing $S_0$. Induction
+puts every future state in the set; a finite-prefix observation
+has therefore become a statement about the entire infinite sequence.
+
+For $1\le h\le15$, let $P_h(s)$ mean
+\[
+ \left(\left\lfloor s/3^i\right\rfloor\bmod3=0\right)
+ \Longleftrightarrow i\equiv0\pmod4
+ \qquad(0\le i\le4h).
+\]
+The same certificate gives
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Mask & $P_{10}$ & $P_{11}$ & $P_{15}$\\
+\midrule
+Number of states among $S_0,\ldots,S_{9684}$ & 1 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+These counts exhaust the finite invariant set, rather than a
+chosen number of scalar terms. The sole state satisfying $P_{10}$
+is $S_{2759}$. The transition, distinctness, and mask equalities above
+are the finite premises of the proof; the complete calculation and
+its integer-valued output are in \texttt{verify.py} and
+\texttt{certificate.json}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose a run with at least eleven gaps starts at $r\ge62$.
+Its first eleven gaps cover $r,\ldots,r+44$.
+The lowest $45$ digits of $S_{r-17}$ are, in reverse order,
+$x_r,\ldots,x_{r+44}$. Since $44\equiv0\pmod4$, reversal preserves
+the prescribed zero positions, so $P_{11}(S_{r-17})$ holds.
+Here $r-17\ge45$, so all these digits correspond to positive indices.
+The invariant-set calculation excludes that mask for every reachable
+state. This proves $g\le10$.
+
+For equality, direct substitution in \eqref{eq:recurrence} gives
+\[
+ (x_{2780},\ldots,x_{2820})=(0,1,2,2)^{10}0,
+\]
+where the exponent denotes concatenation. All forty-one terms are
+checked, and $2780\ge62$, so this is an admissible ten-gap run.
+
+Finally, a deterministic orbit whose first repetition is
+\eqref{eq:closing}, with \eqref{eq:distinct}, has least preperiod
+$739$ and least cycle length $9685-739=8946$.
+For completeness, eventual scalar periodicity with period $p$ after
+$\mu$ implies $S_{j+p}=S_j$ for $j\ge\mu$, by the block encoding.
+Conversely, periodic states for $j\ge\mu$ imply
+$x_{n+p}=x_n$ for $n>\mu$, by their most significant digits.
+Thus the least eventual periods agree, as do their least preperiods.
+
+A ten-gap run at $r\ge62$ is equivalent to $P_{10}(S_{r-21})$:
+the same reversal argument uses forty-one digits. The sole such
+state occurs at $j=2759$ in the cycle starting at $739$, and hence
+exactly at $j=2759+8946m$ for $m\ge0$. This gives the asserted starts.
+\end{proof}
+
+The scalar recurrence provides a second implementation of the same
+finite premises. Its comparison ranges are recorded in
+\texttt{certificate.json}; the invariant-set argument supplies the
+infinite scope.
+
+\section{The corrected capture theorem}
+For the same recurrence, Finch's Definitions~21--22 and Conjecture~23
+\cite[\S7, p.~9]{finch2026} use $G=\lceil(k-1)/4\rceil$ and the
+least endpoint $z$ of an admissible $G$-gap run. When the eventual
+period is four, $\mu_A(k)$ is the least nonnegative integer with
+$x_{n+4}=x_n$ for every $n>\mu_A(k)$. The proposed identity is
+$z-\mu_A(k)=6$ for $k\equiv2,3\pmod4$.
+The four-cycle patterns go back to the discussion recorded by Miller
+\cite{finchMO}; Finch's Propositions~12--13 \cite[\S4, p.~5]{finch2026}
+classify the cycles and give the capture criterion. The correction
+below uses those results; it does not determine which lags enter a
+four-cycle.
+
+\begin{theorem}\label{thm:capture}
+Suppose $k\ge2$ and the least eventual period of
+\eqref{eq:recurrence} is four. Then
+\[
+z(k)-\mu_A(k)=
+\begin{cases}9,&k=2,\\6,&k\ge3.\end{cases}
+\]
+In particular, the restriction of Conjecture~23 to $k\ge3$ is true.
+For $k\ge3$, necessarily $k\equiv2,3\pmod4$, and the first
+capturing run starts at
+\[
+s=\begin{cases}
+\mu_A(k)-k+4,&k\equiv2\pmod4,\\
+\mu_A(k)-k+5,&k\equiv3\pmod4.
+\end{cases}
+\]
+The triple $(x_{\mu_A(k)},x_{\mu_A(k)+1},x_{\mu_A(k)+2})$
+is respectively $(2,2,0)$ or $(1,2,0)$.
+\end{theorem}
+\begin{proof}
+First take $k=2$.
+The repeating block $(0,1,1,2)$ gives the initial values and satisfies
+the recurrence: at residues $n\equiv0,1,2,3\pmod4$, the respective
+identities in $\F$ are
+$2=1+1^2$, $0=2+1^2$, $1=0+2^2$, and $1=1+0^2$.
+Uniqueness of the recurrence proves the description for every $n\ge1$.
+The zeros are exactly $n\equiv1\pmod4$, so the least period is four
+and the least preperiod is zero. Here $G=1$ and an admissible run
+must start at $r\ge3$. The first possible zero is $r=5$, followed
+by the next at $9$, with nonzero terms between. Hence $z=9$.
+
+Now let $k\ge3$ and write $\mu=\mu_A(k)$ and
+$b_n=[x_n\ne0]$. Let $(c_n)_{n\in\mathbb Z}$ be the
+four-periodic sequence agreeing with the tail of $x$, and put
+$\beta_n=[c_n\ne0]$. Shifting an index by a sufficiently large
+multiple of four shows that $c$ satisfies the recurrence at every
+integer index.
+
+For completeness, Finch's Proposition~12 gives the following
+classification by an elementary increment count. The increments
+$c_n-c_{n-1}=\beta_{n-k}$ around a period sum to zero in $\F$,
+so the number of nonzero entries is divisible by three. It is not
+zero, since the least period is four; hence there is exactly one
+zero. Starting there, the block is $(0,1,a,2)$ with $a\in\{1,2\}$:
+the first and last steps force the entries one and two. The sole
+zero increment is at offset two if $a=1$, and at offset three if
+$a=2$. Its delayed argument is the sole zero, so necessarily
+$k\equiv2\pmod4$ when $a=1$, and $k\equiv3\pmod4$ when $a=2$.
+This recovers the cycle patterns credited to Pinch and Finch above.
+
+The initial conditions give $x_k=\cdots=x_{2k-1}=1$. The longest
+string of ones in $c$ has length two when $a=1$ and one when $a=2$.
+Consequently
+\[
+\mu\ge\begin{cases}2k-3,&a=1,\\2k-2,&a=2.\end{cases}
+\]
+In the first case $k\ge6$, and in the second $k\ge3$; thus
+$\mu\ge k+1$. Minimality of $\mu$ gives $x_\mu\ne c_\mu$,
+and $x_n=c_n$ for all $n>\mu$.
+
+Set $L=\mu+2-k$, so $L\ge1$. Comparing the recurrences at $n+k$
+for $n\ge L$ gives
+\begin{equation}\label{eq:indicator}
+b_n=\beta_n\quad(n\ge L),\qquad b_{L-1}\ne\beta_{L-1}.
+\end{equation}
+The second assertion follows by comparing the recurrences at
+$\mu+1$: equality of these indicators would force
+$x_\mu=c_\mu$. All indices here are positive, since the displayed
+lower bounds on $\mu$ give $L-1\ge1$.
+More explicitly, for $n\ge L$,
+\[
+b_n=x_{n+k}-x_{n+k-1}=c_{n+k}-c_{n+k-1}=\beta_n.
+\]
+
+In particular, $b_\mu=\beta_\mu$; hence $x_\mu,c_\mu$ are distinct
+nonzero residues. The discrepancy cannot be at the first nonzero
+position after a zero of $c$: then $c_\mu=1$, $x_\mu=2$, and
+$x_{\mu-1}=0$ by \eqref{eq:indicator}, giving the impossible step
+$2-0=2$. It cannot be at the last nonzero position either: then
+$x_\mu=1$, $x_{\mu+1}=0$, again giving a step of two.
+Every step used has index at least $k+1$, so its value must be zero
+or one. Thus $\mu$ is exactly the middle position of the block,
+two places after a zero of $c$.
+Consequently the last-disagreement triples are $(2,2,0)$ when
+$a=1$ and $(1,2,0)$ when $a=2$. The recurrence at $\mu+1$ gives
+\[
+b_{L-1}=c_{\mu+1}-x_\mu=
+\begin{cases}0,&k\equiv2\pmod4,\\1,&k\equiv3\pmod4.\end{cases}
+\]
+
+Put $s=\mu+6-4G$. For $k=4q+2$ we have $4G=k+2$,
+$s=L+2$, and $\mu\ge2k-3$ gives $s\ge k+1$.
+For $k=4q+3$ we have $4G=k+1$, $s=L+3$, and
+$\mu\ge2k-2$ gives $s\ge k+3$. These are exactly the two
+formulas for $s$ in the theorem. In each case $s$ is
+a zero position of $c$. Equation~\eqref{eq:indicator} therefore
+gives a $G$-gap run from $s$ to $\mu+6$, so $z\le\mu+6$.
+
+For minimality, recall the forward implication of the capture
+criterion: a $G$-gap run ending at $e$ determines $x_e=0$ and
+$k$ consecutive indicators ending at $e$, since $4G+1\ge k$.
+The data $(x_e;b_{e-k+1},\ldots,b_e)$ coincide with the
+four-cycle having a zero at $e$; they determine $x_{e+1}$,
+then its indicator, and inductively every later term. Thus $x$ agrees
+with $c$ from $e$ onward. No such endpoint can be at or before
+$\mu$. After $\mu$ the first two zeros are $\mu+2$ and $\mu+6$.
+A run ending at $\mu+2$ would start at $s-4$. If $k\equiv2$,
+this start is $L-2$, but the interior position $L-1$ is an extra
+zero by \eqref{eq:indicator}. If $k\equiv3$, the proposed start is
+$L-1$, which is nonzero by the same equation. Both are impossible.
+Hence $z=\mu+6$.
+\end{proof}
+
+\begin{corollary}\label{cor:neighborhood}
+Under the hypotheses of Theorem~\ref{thm:capture}, put $s=z-4G$.
+For $k\ge3$ the neighborhood conditions in Finch's Remark~24 hold:
+$b_{s-4}=1$ when $k\equiv2\pmod4$, and
+$b_{s-5}=0$, $b_{s-1}=1$ when $k\equiv3\pmod4$.
+At $k=2$ the proposed condition fails: $s=5$ and $b_{s-4}=b_1=0$.
+\end{corollary}
+\begin{proof}
+Use $L,\mu,a$ from the proof. If $a=1$, then $k\ge6$ and
+$\mu-2\ge L$, so $x_{\mu-2}=0$, whereas $x_{\mu-1}\ne0$.
+The step condition gives $x_{\mu-1}=1$. If $a=2$, then
+$x_\mu=1$ and $x_{\mu-1}\ne0$; the step into $x_\mu$ also
+forces $x_{\mu-1}=1$. The recurrence at $\mu$ now gives
+$b_{\mu-k}=1$ for $a=1$ and $b_{\mu-k}=0$ for $a=2$.
+These are $b_{s-4}$ and $b_{s-5}$ respectively.
+In the latter case $s-1=L+2$ is nonzero by
+\eqref{eq:indicator}. The $k=2$ value follows from its explicit cycle.
+\end{proof}
+
+\section{Coverage and formal statements}
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}p{0.65\linewidth}@{}}
+\toprule
+Item in Finch \cite{finch2026} & Coverage\\
+\midrule
+Definition~15; Remark~20 & Answered: no, for universal attainment.
+The exact maximum at $k=61$ is ten (Theorem~\ref{thm:main}).\\
+Theorem~16; Lemma~17 & Prior proof cited: Finch (2026).
+The bound and local block description remain valid.\\
+Propositions~12--13; Remark~19 & Classification reproved; prior proof:
+Finch (2026). Capture criterion cited; both are used above.\\
+Example~18 & Prior computation cited: Finch (2026); the sixty
+terms agree with the recurrence.\\
+Remark~20, six listed lags & Not covered: their individual attainment
+claims are distinct from universal attainment.\\
+Conjecture~23 & Refuted-and-corrected: offset nine at $k=2$;
+offset six at every $k\ge3$ with period four
+(Theorem~\ref{thm:capture}).\\
+Remark~24 & Neighborhood conditions proved for $k\ge3$;
+the boundary condition fails at $k=2$
+(Corollary~\ref{cor:neighborhood}).\\
+Conjectures~5, 10, 14 & Not covered. The capture theorem is
+conditional on period four, not a proof of either infinite family
+in Conjecture~14.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Supporting finite checks}
+The program \texttt{verify.py} closes all canonical state orbits for
+$2\le k\le41$ and checks the capture and neighborhood values in
+the seventeen period-four cases. The separate program
+\texttt{verify\_capture.py} enumerates all $81$ four-letter words
+for each lag residue and searches the forty parameters
+$2\le k\le80$ with $k\equiv2,3\pmod4$, up to index $10^6$
+per parameter. It finds thirty capturing runs and verifies their
+cycle states, start indices, last-disagreement triples, and local
+indicators. For $k=18,23,35,42,50,51,55,63,74,78$ it finds no
+capture within that bound; this gives no classification of their
+eventual periods. The exact outputs are \texttt{certificate.json}
+and \texttt{capture-checks.json}. These examples supplement the
+written all-parameter proofs.
+
+\newpage
+\subsection*{Formal coverage}
+The declaration \texttt{result} in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/0d064f0d28d301cd8a1d1b09173035a9f2fd6c02/D5/S1/Recurrence/FinchZeroRunsModThree.lean}{\texttt{FinchZeroRunsModThree.lean}}
+proves the negation of universal attainment, using the $k=61$
+orbit and the excluded eleven-gap mask. The explicit ten-gap block
+and the least-period and preperiod conclusions above have the stated
+finite-check and written-proof coverage.
+The declaration \texttt{result} in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/0d064f0d28d301cd8a1d1b09173035a9f2fd6c02/D5/S0/Certificates/FinchConjecture23CaptureOffsetRefutation.lean}{capture-offset Lean source}
+proves the negation of the capture-offset conjecture using the $k=2$
+cycle, least capture endpoint, and least preperiod in
+Theorem~\ref{thm:capture}. The $k\ge3$ capture correction and
+Corollary~\ref{cor:neighborhood} have the written proofs above,
+additional to the conclusions of these two Lean declarations.
+
+\begin{thebibliography}{9}
+\bibitem{finch2026} S. Finch,
+\emph{Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess},
+arXiv:2610.34300v1 (2026), \S\S6--7, pp.~6--10.
+\url{https://arxiv.org/abs/2610.34300v1}.
+\bibitem{finch2002} S. R. Finch,
+\emph{Periodicity in Sequences Mod 3}, September 5, 2002;
+\S0.2 records B. Harder's computations from 2000.
+\url{https://www.mit.edu/~sfinch/seqmod3.pdf}.
+\bibitem{finchMO} V. S. Miller,
+\emph{Finch's sequence over $\mathbb F_3$},
+MathOverflow question 50678, December 29, 2010; the question records
+R. Pinch's explanation of the four-periodic patterns.
+\url{https://mathoverflow.net/questions/50678/finchs-sequence-over-mathbbf-3}.
+\end{thebibliography}
+\bigskip
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0).
+\end{document}

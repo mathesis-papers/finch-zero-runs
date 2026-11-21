@@ -1,0 +1,346 @@
+{
+  "bounded_search_without_capture": [
+    18,
+    23,
+    35,
+    42,
+    50,
+    51,
+    55,
+    63,
+    74,
+    78
+  ],
+  "cap_per_k": 1000000,
+  "captured_count": 30,
+  "coverage": "Finite trajectories and all 81 four-letter words per lag residue; the universal conditional identity is proved in note.tex.",
+  "four_cycle_counts_by_lag_residue": {
+    "0": 0,
+    "1": 0,
+    "2": 4,
+    "3": 4
+  },
+  "max_k": 80,
+  "parameters": [
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 2,
+      "mu": 0,
+      "offset": 9,
+      "s": 5,
+      "z": 9
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 3,
+      "mu": 5,
+      "offset": 6,
+      "s": 7,
+      "z": 11
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 6,
+      "mu": 18,
+      "offset": 6,
+      "s": 16,
+      "z": 24
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 7,
+      "mu": 33,
+      "offset": 6,
+      "s": 31,
+      "z": 39
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 10,
+      "mu": 76,
+      "offset": 6,
+      "s": 70,
+      "z": 82
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 11,
+      "mu": 56,
+      "offset": 6,
+      "s": 50,
+      "z": 62
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 14,
+      "mu": 134,
+      "offset": 6,
+      "s": 124,
+      "z": 140
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 15,
+      "mu": 79,
+      "offset": 6,
+      "s": 69,
+      "z": 85
+    },
+    {
+      "capture_found": false,
+      "k": 18,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 19,
+      "mu": 176,
+      "offset": 6,
+      "s": 162,
+      "z": 182
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 22,
+      "mu": 560,
+      "offset": 6,
+      "s": 542,
+      "z": 566
+    },
+    {
+      "capture_found": false,
+      "k": 23,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 26,
+      "mu": 337,
+      "offset": 6,
+      "s": 315,
+      "z": 343
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 27,
+      "mu": 314,
+      "offset": 6,
+      "s": 292,
+      "z": 320
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 30,
+      "mu": 1802,
+      "offset": 6,
+      "s": 1776,
+      "z": 1808
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 31,
+      "mu": 748,
+      "offset": 6,
+      "s": 722,
+      "z": 754
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 34,
+      "mu": 1129,
+      "offset": 6,
+      "s": 1099,
+      "z": 1135
+    },
+    {
+      "capture_found": false,
+      "k": 35,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 38,
+      "mu": 2773,
+      "offset": 6,
+      "s": 2739,
+      "z": 2779
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 39,
+      "mu": 3166,
+      "offset": 6,
+      "s": 3132,
+      "z": 3172
+    },
+    {
+      "capture_found": false,
+      "k": 42,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 43,
+      "mu": 2595,
+      "offset": 6,
+      "s": 2557,
+      "z": 2601
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 46,
+      "mu": 855,
+      "offset": 6,
+      "s": 813,
+      "z": 861
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 47,
+      "mu": 8964,
+      "offset": 6,
+      "s": 8922,
+      "z": 8970
+    },
+    {
+      "capture_found": false,
+      "k": 50,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": false,
+      "k": 51,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 54,
+      "mu": 16885,
+      "offset": 6,
+      "s": 16835,
+      "z": 16891
+    },
+    {
+      "capture_found": false,
+      "k": 55,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 58,
+      "mu": 17814,
+      "offset": 6,
+      "s": 17760,
+      "z": 17820
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 59,
+      "mu": 4945,
+      "offset": 6,
+      "s": 4891,
+      "z": 4951
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 62,
+      "mu": 14841,
+      "offset": 6,
+      "s": 14783,
+      "z": 14847
+    },
+    {
+      "capture_found": false,
+      "k": 63,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 66,
+      "mu": 6931,
+      "offset": 6,
+      "s": 6869,
+      "z": 6937
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 67,
+      "mu": 6139,
+      "offset": 6,
+      "s": 6077,
+      "z": 6145
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 70,
+      "mu": 12279,
+      "offset": 6,
+      "s": 12213,
+      "z": 12285
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 71,
+      "mu": 6492,
+      "offset": 6,
+      "s": 6426,
+      "z": 6498
+    },
+    {
+      "capture_found": false,
+      "k": 74,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 75,
+      "mu": 3920,
+      "offset": 6,
+      "s": 3850,
+      "z": 3926
+    },
+    {
+      "capture_found": false,
+      "k": 78,
+      "last_index": 1000000
+    },
+    {
+      "capture_found": true,
+      "four_period_state_equality": true,
+      "k": 79,
+      "mu": 18334,
+      "offset": 6,
+      "s": 18260,
+      "z": 18340
+    }
+  ]
+}

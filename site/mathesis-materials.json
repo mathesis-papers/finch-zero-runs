@@ -1,0 +1,11 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "finch-zero-runs",
+  "version": 3,
+  "repository_url": "https://github.com/mathesis-papers/finch-zero-runs",
+  "site_url": "https://papers.trureturing.org/finch-zero-runs/",
+  "doi": null,
+  "reading": {},
+  "slides": [],
+  "visualizations": []
+}

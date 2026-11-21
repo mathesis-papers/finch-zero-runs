@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-21"
+version: "3"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/finch-zero-runs?version=3"
+license: "CC-BY-4.0"
