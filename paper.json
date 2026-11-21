@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24408307",
     "current_version": 3,
-    "doi": null,
+    "doi": "10.5281/zenodo.24408308",
     "lean_source": {
       "revision": "0d064f0d28d301cd8a1d1b09173035a9f2fd6c02",
       "url": "https://github.com/the-omega-institute/trureturing/blob/0d064f0d28d301cd8a1d1b09173035a9f2fd6c02/D5/S1/Recurrence/FinchZeroRunsModThree.lean"
