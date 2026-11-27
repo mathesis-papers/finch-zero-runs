@@ -1,0 +1,17 @@
+[book]
+version = "3"
+authors = ["Haobo Ma", "Wenlin Zhang"]
+license = "CC-BY-4.0"
+editions = ["zh", "en"]
+date = "2026-11-21"
+[book.title]
+zh = "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem"
+en = "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem"
+[outputs]
+html = true
+pdf = ["academic"]
+epub = true
+[mathesis]
+work = "finch-zero-runs"
+version = 3
+source_title = "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem"

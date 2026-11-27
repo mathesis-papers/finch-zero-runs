@@ -1,0 +1,27 @@
+{
+  "duration": "1:34",
+  "id": "001-zero-runs",
+  "lean": [],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "finch-zero-runs_001_cover.jpg",
+    "narrated_720p": "finch-zero-runs_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-23",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A closed orbit settles the longest zero run at lag 61; two candidate endpoints explain the corrected capture offset.",
+  "summary_zh": "封闭轨道确定滞后量为 61 时的最长零点串；比较两个候选终点便可理解捕获偏移的修正。",
+  "title": "Zero runs and four-cycle capture",
+  "title_zh": "零点串与四周期捕获"
+}

@@ -1,0 +1,46 @@
+{
+  "book": "finch-zero-runs",
+  "pending_claims": [],
+  "results": {
+    "lag-61": {
+      "claim": "collected:finch-zero-runs:3:s1",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S1/Recurrence/FinchZeroRunsModThree.D5.S1.Recurrence.FinchZeroRunsModThree.result",
+      "comparison_commit": "0d064f0d28d301cd8a1d1b09173035a9f2fd6c02",
+      "formalization_request": {
+        "label": "Theorem 1 — Exact maximum and orbit at lag 61",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/367"
+      }
+    },
+    "capture": {
+      "claim": "collected:finch-zero-runs:3:s2",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S0/Certificates/FinchConjecture23CaptureOffsetRefutation.Trureturing.OpenProblems.FinchConjecture23CaptureOffset.result",
+      "comparison_commit": "0d064f0d28d301cd8a1d1b09173035a9f2fd6c02",
+      "formalization_request": {
+        "label": "Theorem 2 — Conditional capture correction",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/368"
+      }
+    },
+    "neighborhood": {
+      "claim": "collected:finch-zero-runs:3:s3",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "0d064f0d28d301cd8a1d1b09173035a9f2fd6c02",
+      "formalization_request": {
+        "label": "Corollary 3 — Capture neighborhood and boundary",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/369"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem",
+    "zh": "Extending Finch's zero-run analysis: nonattainment and a corrected capture theorem"
+  },
+  "version": 3,
+  "work": "finch-zero-runs"
+}

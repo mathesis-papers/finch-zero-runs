@@ -26,3 +26,38 @@ Haobo Ma, Wenlin Zhang (2026). Extending Finch's zero-run analysis: nonattainmen
 ## Contributions
 
 Original authors are listed above. Formalization contributors and attribution are retained in `formalization/nodes.json`; repository pull requests do not confer verification or credit. Submit formalization attempts through the Mathesis attempt path described in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+<!-- Mathesis generated repository guide; refresh with paper.py front. -->
+
+## Reading and materials
+
+[Paper site](https://papers.trureturing.org/finch-zero-runs/) · [Frozen PDF](paper.pdf) · [Citation](CITATION.cff)
+
+[中文阅读](https://papers.trureturing.org/finch-zero-runs/finch-zero-runs/zh/) · [Read in English](https://papers.trureturing.org/finch-zero-runs/finch-zero-runs/en/)
+
+[Slides](https://papers.trureturing.org/finch-zero-runs/finch-zero-runs/slides/) ([sources](books/finch-zero-runs/slides/)) · [Videos](https://papers.trureturing.org/finch-zero-runs/finch-zero-runs/films/) ([sources](books/finch-zero-runs/films/))
+
+These are publication routes; available built materials are inventoried in [mathesis-materials.json](https://papers.trureturing.org/finch-zero-runs/mathesis-materials.json).
+
+## Book and formalization
+
+Catalog formalization status above is separate from the statement comparisons below. A nearby declaration does not verify the complete written result.
+
+| Book result | Comparison with formal base | Compared declaration |
+|---|---|---|
+| `lag-61` | variant | `D5/S1/Recurrence/FinchZeroRunsModThree.D5.S1.Recurrence.FinchZeroRunsModThree.result` |
+| `capture` | variant | `D5/S0/Certificates/FinchConjecture23CaptureOffsetRefutation.Trureturing.OpenProblems.FinchConjecture23CaptureOffset.result` |
+| `neighborhood` | none | — |
+
+Book stage: **complete**; 0 pending claims. [Statement comparisons](.mathesis/REVIEW.md).
+
+## Repository map
+
+| Zone | Location |
+|---|---|
+| Paper record | `paper.json`, `CITATION.cff`, `paper.pdf`, `manuscript/`, `formalization/nodes.json`, `LICENSES/`, `.mathesis/` |
+| Content | `books/finch-zero-runs/`: Chinese/English text, figures, visualizations, videos, slides, assets |
+| Machinery | Upstream and layer managed paths; update with `tbook template update` |
+| Repository front | This README, changelog, contribution guide, licence, project/site/pin configuration, `template.d/` |
+
+See [the enforced layout](docs/layer-mathesis/LAYOUT.md). Preparation run records and built outputs stay outside the committed tree.

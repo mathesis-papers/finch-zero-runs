@@ -1,0 +1,98 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\usepackage{amsmath,amssymb}
+\title{Zero runs and four-cycle capture}
+\subtitle{Two questions about Finch's recurrence modulo three}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute[ChronoAI; NUS]{\inst{1} ChronoAI Pte Ltd, Singapore \and \inst{2} National University of Singapore}
+\date{Based on the version 3 paper}
+\begin{document}
+% Manuscript: Title and abstract
+\begin{frame}
+  \titlepage
+  \note{This presentation explains the version 3 paper by Haobo Ma and Wenlin Zhang. We focus on what a finite window tells us about an infinite recurrence.}
+\end{frame}
+% Manuscript: Sections 1--4
+\begin{frame}{Outline}
+  \tableofcontents
+  \note{First we close an orbit at a fixed lag. Then we compare two possible capture endpoints in a four-cycle.}
+\end{frame}
+\section{The closed orbit}
+\subsection{The zero pattern}
+% Manuscript: Section 1, recurrence and run
+\begin{frame}{One rule, two kinds of counting}
+  \[x_1=\cdots=x_{k-1}=0,\quad x_k=1,\quad
+    x_n=x_{n-1}+x_{n-k}^2\quad(n\ge k+1),\quad \text{in }\mathbb F_3.\]
+  A run starts at $r\ge k+1$: zeros occur precisely at
+  $r,r+4,\ldots,r+4g$ within this interval.
+  \begin{exampleblock}{One gap at lag two}
+    Positions $5$ to $9$: $\boldsymbol{0},1,1,2,\boldsymbol{0}$.
+    The same pattern at position $1$ is not admissible.
+  \end{exampleblock}
+  \note{A gap is counted between zeros, so $g$ gaps means $g+1$ zeros. Squaring reduces to asking whether the older value was nonzero.}
+\end{frame}
+\subsection{The orbit certificate}
+% Manuscript: Sections 1--2, Theorem 1
+\begin{frame}{At lag 61, fifteen is allowed but never reached}
+  A state $S_j$ encodes the $61$ entries ending at $j+61$.
+  Drop the oldest digit and append the next term.
+  \[S_0,\ldots,S_{9684}\ \text{distinct},\qquad S_{9685}=S_{739}.\]
+  \begin{block}{Theorem 1: exact values}
+    Maximum $10$ gaps; starts $2780+8946m$ for $m\ge0$.
+    Least eventual period $8946$; least preperiod $739$.
+  \end{block}
+  \note{Only the full window determines the future. It closes after $9685$ distinct states, returning to index $739$. Scalar periods give window periods; the oldest digit of each window recovers the scalar period and preperiod.}
+\end{frame}
+% Manuscript: Section 2, mask counts and witness
+\begin{frame}{Why a finite search answers the infinite question}
+  \begin{itemize}
+    \item Eleven gaps would give a $45$-digit mask; no reachable window passes.
+    \item Reversal preserves the zero positions because $44$ is a multiple of four.
+    \item The sole ten-gap match $S_{2759}$ ends at $2820$:
+      $\bigl(0,1,2,2\bigr)^{10}0$.
+  \end{itemize}
+  \note{The exponent denotes concatenation. The match ends forty entries after its start. Since $S_{2759}$ is on the cycle, all later matching starts are separated by $8946$. An eleven-gap prefix would appear in any longer run.}
+\end{frame}
+\section{The capture boundary}
+\subsection{What capture measures}
+% Manuscript: Section 3, definitions and Theorem 2
+\begin{frame}{The first eligible endpoint need not be the first zero}
+  If the least eventual period is four, let $\mu$ be the least
+  index after which four-step repetition holds. Let $z$ be the
+  first endpoint of a run with $G=\lceil(k-1)/4\rceil$ gaps.
+  \begin{block}{Theorem 2: corrected offset}
+    $z-\mu=9$ at $k=2$; $z-\mu=6$ for every eligible $k\ge3$.
+  \end{block}
+  At $k=2$, $\mu=0$ and the first eligible run is $5$ to $9$.
+  \note{A capturing run supplies the closing value zero and at least $k$ zero/nonzero indicators. Those determine all subsequent terms. The lag-two sequence has period four from the beginning.}
+\end{frame}
+\subsection{Two candidate endpoints}
+% Manuscript: Section 3, proof of Theorem 2 and Corollary 3
+\begin{frame}{The earlier candidate fails in two different ways}
+  For $k\ge3$, the tail block is $(0,1,a,2)$; the position of
+  the stationary step forces $k\equiv2$ or $3\pmod4$.
+  With $L=\mu+2-k$, the indicators agree with the tail from $L$ onward.
+  \medskip
+  \begin{tabular}{c|ll}
+    $k\bmod4$ & Candidate ending at $\mu+2$ & Start for $\mu+6$ \\
+    \hline
+    $2$ & extra zero at $L-1$ & $L+2$ \\
+    $3$ & nonzero start at $L-1$ & $L+3$
+  \end{tabular}
+  \note{An endpoint at or before $\mu$ would force agreement too early. The last-disagreement triples are $(2,2,0)$ and $(1,2,0)$. The same boundary calculation gives Corollary 3: $b_{s-4}=1$ in class two, and $b_{s-5}=0$, $b_{s-1}=1$ in class three. At $k=2$ the proposed neighborhood condition fails since $b_1=0$.}
+\end{frame}
+\appendix
+% Manuscript: Section 4 and bibliography
+\begin{frame}{What the evidence establishes}
+  \begin{itemize}
+    \item Pinned Lean: universal attainment fails; Finch's original offset fails at lag two.
+    \item Manuscript: the exact lag-61 values and the full capture and neighborhood conclusions.
+    \item Not a classification of lags with eventual period four.
+  \end{itemize}
+  \small Ma and Zhang, \href{https://doi.org/10.5281/zenodo.24408308}{version 3};
+  Finch, \href{https://arxiv.org/abs/2610.34300v1}{Sections 4, 6--7}.
+  \note{Credit Harder for the earlier value $8946$ recorded by Finch. Miller's account records Pinch's explanation of the four-cycle patterns. The two public Lean conclusions are narrower than the manuscript's exact results.}
+\end{frame}
+% Manuscript: Section 4, formal coverage
+\FormalVerification
+\end{document}

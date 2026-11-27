@@ -1,0 +1,25 @@
+{
+  "voice": "af_heart",
+  "speed": 0.98,
+  "music": {"bpm": 84, "progression": "d-minor"},
+  "scenes": [
+    {"id": "window", "name": "A RULE WITH MEMORY", "lead": 0.7, "tail": 0.6, "lines": [
+      ["Start with zero and one. Square the older number, add it to the newer one, and keep the remainder after dividing by three.", "从零和一开始。把较早的数平方，加到较新的数上，再取除以三的余数。"],
+      ["Soon the pair zero, one comes back. From that point the rule must give the same future.", "很快又出现零、一这对数；此后同一规则必然给出相同的结果。"],
+      ["Two zeros four places apart, with no zero between, make one gap. The first admissible pair here is at five and nine.", "相距四项、且中间没有别的零的两个零，构成一个间隔。这个例子里第一对合格的零在第五和第九项。"]
+    ]},
+    {"id": "orbit", "name": "CLOSE THE ORBIT", "lead": 0.6, "tail": 0.6, "lines": [
+      ["At lag sixty-one, remember the entire window of sixty-one entries. The first repeated window returns to state seven hundred thirty-nine.", "当滞后量为六十一时，要记住整个六十一项窗口。首次重复的窗口回到编号七百三十九的状态。"],
+      ["The loop is eight thousand nine hundred forty-six windows long. Every future window is already in this finite list.", "循环有八千九百四十六个窗口；以后所有窗口都已经在这张有限表中。"],
+      ["No window contains an eleven-gap prefix in the required pattern at its end. Exactly one ends with the ten-gap pattern. Fifteen is an upper bound, not an attained length.", "没有窗口以所需的十一间隔图案结尾；恰有一个以十间隔图案结尾。十五只是上界，不是实际达到的长度。"]
+    ]},
+    {"id": "capture", "name": "TWO CANDIDATE ENDPOINTS", "lead": 0.6, "tail": 0.6, "lines": [
+      ["Now assume the least eventual period is four. A capturing run gives enough zero and nonzero information to force the tail.", "现在假设最小最终周期为四。捕获串给出足够的零与非零信息，从而确定尾部。"],
+      ["For larger lags, the first zero after the last disagreement comes two steps later. One candidate has an extra zero; the other starts at a nonzero.", "对较大的滞后量，最后一次不同之后两步出现第一个零。一类候选多出一个零，另一类的起点不是零。"],
+      ["The next zero comes six steps after the last disagreement, and that run works. Lag two is different: its first allowed run ends at nine, though the cycle begins immediately.", "下一个零在最后一次不同之后六步，此时零点串成立。滞后量为二的情况不同：虽然从一开始就循环，第一个合格的串还是在第九项结束。"]
+    ]},
+    {"id": "scope", "name": "WHAT FOLLOWS", "lead": 0.4, "tail": 1.0, "lines": [
+      ["Ma and Zhang show that a bound need not be reached, and that a cycle can begin before a run certifies it. The capture theorem does not tell us which lags reach period four.", "Haobo Ma 和 Wenlin Zhang 说明，上界不一定达到，周期也可能在零点串确认它之前就开始。捕获定理不判定哪些滞后量会进入四周期。"]
+    ]}
+  ]
+}
